@@ -1,9 +1,8 @@
 package org.kirhgoff.primes 
 
 object SimpleApp extends App {
-	println("What is the meaning of Life, the Universe, and Everything?")
-	lazy val theAnswer = 42 
-	Thread.sleep(2000)
-	println (s"The answer is: ${theAnswer}")
+	val primes = Primes.primesUpTo(1000)
+  val palindromes = (1 to 999).map (Palindromes.palindromeFor).exit
 
+  palindromes.map (println)
 }
