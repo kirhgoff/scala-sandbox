@@ -1,14 +1,15 @@
 package org.kirhgoff.primes
 
+import org.kirhgoff.primes.Utils._
 /**
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
  */
-object Palindromes {
 
-  def pow (value:Int, power:Int):Int = power match {
-    case 0 => 1
-    case something => value * pow(value, power - 1)
-  }
+class Divisors(val divisors:List[Factor]) {
+  //TODO
+}
+
+object Palindromes {
 
   def digits(number:Int):List[Int] = number match {
     case 0 => List()
