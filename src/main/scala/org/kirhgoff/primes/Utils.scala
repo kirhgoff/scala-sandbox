@@ -16,6 +16,7 @@ object Utils {
     case other => other*factorial(other -1)
   }
 
+  def isMoreThanThreeDigit(x:Int) = x > 999
   def isThreeDigit(x:Int) = x > 99 && x <= 999
   def isSixDigit(x:Int) = x > 99999 && x <= 999999
 

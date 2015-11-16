@@ -4,8 +4,17 @@ import org.scalatest._
 
 class EulerAppTest extends FlatSpec with Matchers {
 
-//  "The Answer" should "always be 42" in {
-//    SimpleApp.theAnswer should be (42)
-//  }
+  "RowAggregator" should "properly fold rows" in {
+    RowAggregator.fold(1, 1, List(123, 123)) should equal(Some(PalindromeResult(1, 123, 123)))
+    RowAggregator.fold(1, 1, List(1234, 123)) should equal(None)
+    RowAggregator.fold(1, 1, List(123, 4, 1, 2)) should equal(None)
+  }
+
+  "Palindromes" should "properly detect palindromes" in {
+    Palindromes.isPalindrome(123321) should equal(true)
+    Palindromes.isPalindrome(163321) should equal(false)
+    Palindromes.isPalindrome(9999) should equal(true)
+    Palindromes.isPalindrome(978) should equal(false)
+  }
 
 }
