@@ -19,6 +19,19 @@ object Primes {
 
   private def noDividersExist(number: Int, primes: List[Int]) = !primes.exists(x => number % x == 0)
 
+  def nth(number: Int) = {
+    def recurse(index:Int, current:Int, primes:List[Int]):List[Int] = index match {
+      case i if index == number => primes
+      case i => current match {
+        case x if noDividersExist(x, primes) => recurse(i + 1, x + 1, x :: primes)
+        case x => recurse(i, x + 1, primes)
+      }
+    }
+
+    recurse(1, 2, List())
+  }
+
+
   def primesUpTo(border: Int) = {
     val numbers = 2 to border
     numbers.foldLeft(List(2))((primes, number) => if (noDividersExist(number, primes)) number :: primes else primes)
