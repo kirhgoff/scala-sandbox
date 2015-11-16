@@ -33,7 +33,7 @@ object Primes {
 
 
   def primesUpTo(border: Int) = {
-    val numbers = 2 to border
+    val numbers = 3 to border by 2
     numbers.foldLeft(List(2))((primes, number) => if (noDividersExist(number, primes)) number :: primes else primes)
   }
 
