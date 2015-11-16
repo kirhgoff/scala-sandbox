@@ -7,6 +7,7 @@ object EulerApp {
     //Euler4()
     //Euler5()
     //Euler7
-    Euler8
+    //Euler8
+    Euler9
   }
 }

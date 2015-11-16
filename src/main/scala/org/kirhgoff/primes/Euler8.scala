@@ -32,9 +32,8 @@ object Euler8 {
       |71636269561882670428252483600823257530420752963450
     """.stripMargin.trim.replace("\n", "")
 
-  val digits = theNumber.toList.map(c => c.asDigit)
-
+  val digits = theNumber.map(c => c.asDigit.toLong)
   val lists = for (i <- 0 to digits.length - 12) yield digits.slice(i, i + 13)
-  lists.sortBy(l => l.product).foreach (l => println (l.mkString + "=" + l.product))
+  println(lists.map(l => l.product).max)
 
 }
