@@ -18,6 +18,11 @@ object Euler10 {
   println(s"Big sieve size=${bigSieve.length}")
 
   val remains = numbers diff bigSieve.toSet
-
   println(s"Remaining size=${remains.size}")
+
+  val primes = Primes.primesWithSieve(remains.toList, primesSieve)
+  println(s"Remaining size=${remains.size}")
+
+  println(primes.sum)
+
 }

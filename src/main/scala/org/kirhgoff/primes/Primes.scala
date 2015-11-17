@@ -31,6 +31,16 @@ object Primes {
     recurse(1, 2, List())
   }
 
+  def primesWithSieve (numbers:List[Int], primes:List[Int]):List[Int] = {
+    numbers match {
+      case Nil => primes
+      case list => list.head match {
+        case 1 => primesWithSieve(list.tail, primes)
+        case number if noDividersExist(number, primes) => primesWithSieve(list.tail, number :: primes)
+        case _ => primesWithSieve(list.tail, primes)
+      }
+    }
+  }
 
   def primesUpTo(border: Int) = {
     val numbers = 3 to border by 2

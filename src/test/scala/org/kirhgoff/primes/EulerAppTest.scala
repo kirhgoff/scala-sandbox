@@ -17,4 +17,8 @@ class EulerAppTest extends FlatSpec with Matchers {
     Palindromes.isPalindrome(978) should equal(false)
   }
 
+  "Primes" should "calculate primes with sieve" in {
+    Primes.primesWithSieve((1 to 20).toList, List(7, 5, 3, 2)) should equal(List(19, 17, 13, 11, 7, 5, 3, 2))
+  }
+
 }
