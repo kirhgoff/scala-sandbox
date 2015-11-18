@@ -4,15 +4,21 @@ import org.kirhgoff.primes.Utils._
 /**
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
  */
-sealed trait Factor
+sealed trait Factor {
+  def variants:Int
+}
+
 case class PrimeFactor(number:Int, multiplicity:Int) extends Factor {
   override def toString = multiplicity match {
     case 1 => number.toString
     case _ => number + "^" + multiplicity
   }
+
+  override def variants: Int = multiplicity + 1
 }
 case class Remainder(number:Int) extends Factor {
-  override def toString = "[" + number + "]"
+  override def toString = number.toString
+  override def variants: Int = 2
 }
 
 object Primes {
