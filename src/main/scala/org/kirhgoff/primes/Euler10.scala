@@ -21,8 +21,10 @@ object Euler10 {
   println(s"Remaining size=${remains.size}")
 
   val primes = Primes.primesWithSieve(remains.toList, primesSieve)
-  println(s"Remaining size=${remains.size}")
+  println(s"Primes size=${primes.size}")
 
-  println(primes.sum)
+  //val primesString = primes.sorted.mkString("\n")
+  //Some(new PrintWriter("./primes.txt")).foreach{p => p.write(primesString); p.close}
+  println("Sum=" + primes.map(p => p.toLong).sum)
 
 }
