@@ -139,7 +139,7 @@ object Euler4 {
     println(bruteForceShort)
   }
 
-  def bruteForce = {
+  def bruteForce() = {
     val candidates = mutable.MutableList[PalindromeResult]()
 
     for (x <- 100 to 999) {
