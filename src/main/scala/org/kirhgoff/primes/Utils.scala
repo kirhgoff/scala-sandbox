@@ -1,5 +1,7 @@
 package org.kirhgoff.primes
 
+import scala.math.BigInt
+
 /**
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
  */
@@ -13,6 +15,11 @@ object Utils {
 
   def factorial(value:Int):Int = value match {
     case 1 => 1
+    case other => other*factorial(other -1)
+  }
+
+  def factorial(value:BigInt):BigInt = value match {
+    case x if x == BigInt(1) => BigInt(1)
     case other => other*factorial(other -1)
   }
 
