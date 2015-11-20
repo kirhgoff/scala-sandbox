@@ -10,6 +10,15 @@ object Utils {
     case 0 => 1
     case something => value * pow(value, power - 1)
   }
+  def pow (value:Long, power:Long):Long = power match {
+    case 0 => 1L
+    case something => value * pow(value, power - 1)
+  }
+
+  def pow (value:BigInt, power:Long):BigInt = power match {
+    case 0 => 1L
+    case something => value * pow(value, power - 1)
+  }
 
   def endsWithZero(x: Int): Boolean = x % 10 == 0
 

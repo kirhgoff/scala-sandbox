@@ -14,6 +14,16 @@ object Palindromes {
     case something => (something % 10) :: digits(something / 10)
   }
 
+  def digits(number:Long):List[Long] = number match {
+    case 0 => List()
+    case something => (something % 10) :: digits(something / 10)
+  }
+
+  def digits(number:BigInt):List[BigInt] = number match {
+    case x if x == BigInt(0) => List()
+    case something => (something % 10) :: digits(something / 10)
+  }
+
   def numberFromDigits(digits:List[Int]) = digits.foldLeft(0)((number, digit) => number*10 + digit)
 
   def palindromeFor(number:Int) = {
