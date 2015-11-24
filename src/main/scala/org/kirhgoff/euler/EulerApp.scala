@@ -4,6 +4,6 @@ package org.kirhgoff.euler
 object EulerApp {
 
   def main(args: Array[String]) {
-    Euler17
+    Euler19
   }
 }
