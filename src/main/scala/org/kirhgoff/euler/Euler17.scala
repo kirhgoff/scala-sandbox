@@ -1,4 +1,4 @@
-package org.kirhgoff.primes
+package org.kirhgoff.euler
 
 /**
  * Created by Kirill Lastovirya (kirill.lastovirya@gmail.com) aka kirhgoff on 20/11/15.

@@ -1,4 +1,4 @@
-package org.kirhgoff.primes
+package org.kirhgoff.euler
 
 /**
  * Created by Kirill Lastovirya (kirill.lastovirya@gmail.com) aka kirhgoff on 19/11/15.
@@ -35,7 +35,7 @@ object Euler12 {
   val triangleNumbers = iterator.takeWhile(p => p.divisersCount <= 600)
     .toList.filter(p => p.divisersCount > 500).sortBy(t => t.divisersCount)
 
-  triangleNumbers.map(n => println(n))
+  triangleNumbers.foreach(n => println(n))
 
 }
 
