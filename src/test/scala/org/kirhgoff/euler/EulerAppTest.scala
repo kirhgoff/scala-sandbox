@@ -1,4 +1,4 @@
-package org.kirhgoff.primes 
+package org.kirhgoff.euler
 
 import org.scalatest._
 

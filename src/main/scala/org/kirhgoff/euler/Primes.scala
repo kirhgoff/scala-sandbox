@@ -1,6 +1,6 @@
-package org.kirhgoff.primes
+package org.kirhgoff.euler
 
-import org.kirhgoff.primes.Utils._
+import org.kirhgoff.euler.Utils._
 /**
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
  */

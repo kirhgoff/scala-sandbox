@@ -1,4 +1,4 @@
-package org.kirhgoff.primes
+package org.kirhgoff.euler
 
 /**
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
