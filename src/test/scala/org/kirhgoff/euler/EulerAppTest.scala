@@ -21,4 +21,17 @@ class EulerAppTest extends FlatSpec with Matchers {
     Primes.primesWithSieve((1 to 20).toList, List(7, 5, 3, 2)) should equal(List(19, 17, 13, 11, 7, 5, 3, 2))
   }
 
+  "Words" should "give correct wording for numbers" in {
+    Words(10) should equal("ten")
+    Words(19) should equal("nineteen")
+    Words(72) should equal("seventy two")
+    Words(728) should equal("seven hundred and twenty eight")
+    Words(520) should equal("five hundred and twenty")
+    Words(100) should equal("one hundred")
+    Words(113) should equal("one hundred and thirteen")
+    Words(300) should equal("three hundred")
+    Words(1000) should equal("one thousand")
+
+  }
+
 }
