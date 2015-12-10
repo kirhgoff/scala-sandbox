@@ -1,5 +1,7 @@
 package org.kirhgoff.euler
 
+import java.io.InputStream
+
 /**
  * Created by Kirill Lastovirya (kirill.lastovirya@gmail.com) aka kirhgoff on 24/11/15.
  */
@@ -21,11 +23,25 @@ object Euler18 {
                    |04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
     .stripMargin.trim.split("\n").map(line => line.split(" ").map(n => n.toLong).toList).toList
 
+  //Euler18
   triangle.foreach(arr => println(arr))
+  println("Result: " + new Triangle(triangle).maxPathSum)
+
+  //Euler67
+
+  val asStream: InputStream = getClass.getResourceAsStream("/euler18/p067_triangle.txt")
+  val text = io.Source.fromInputStream(asStream).mkString
+  val bigTriangle = parseString(text)
+
+  println(text)
+  println("Result: " + new Triangle(bigTriangle).maxPathSum)
+
+  def parseString(str:String) = str.trim.split("\n").map(line => line.split(" ").map(n => n.toLong).toList).toList
 }
 
 case class TriangleNode(value:Long, left:Long, right:Long) {
   def maxPathSum = value + Math.max(left, right)
+  override def toString = s"$value [$left, $right]"
 }
 
 class Triangle (triangleRaw:List[List[Long]]) {
@@ -33,9 +49,10 @@ class Triangle (triangleRaw:List[List[Long]]) {
 
   def buildTriangle(triangleRaw:List[List[Long]]):TriangleNode = {
     val maxWidth = triangleRaw(triangleRaw.size - 1).size
-    triangleRaw.foldLeft(createEmptyRow(maxWidth))((previousRow: List[TriangleNode], currentRow: List[Long]) => {
+    triangleRaw.foldRight(createEmptyRow(maxWidth))((currentRow: List[Long], previousRow: List[TriangleNode]) => {
+      println(s"Processing row:$currentRow previous is $previousRow")
       currentRow.zipWithIndex.map {
-        case (value:Long, index:Int) => TriangleNode(0, 0, 0)
+        case (value:Long, index:Int) => TriangleNode(value, previousRow(index).maxPathSum, previousRow(index+1).maxPathSum)
       }
     }).toList(0)
   }
