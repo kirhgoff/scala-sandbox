@@ -6,6 +6,7 @@ import org.kirhgoff.euler.Utils._
  */
 sealed trait Factor {
   def variants:Int
+  def flat:List[Int]
 }
 
 case class PrimeFactor(number:Int, multiplicity:Int) extends Factor {
@@ -13,12 +14,24 @@ case class PrimeFactor(number:Int, multiplicity:Int) extends Factor {
     case 1 => number.toString
     case _ => number + "^" + multiplicity
   }
+  override def flat = List.fill(multiplicity)(number)
 
   override def variants: Int = multiplicity + 1
 }
 case class Remainder(number:Int) extends Factor {
   override def toString = number.toString
   override def variants: Int = 2
+
+  override def flat = List(number)
+}
+
+case class FactorForm (number:Int, factors: List[Factor]) {
+  def properDivisors = {
+    val flatFactors = factors.flatMap(_.flat)
+    (1 to flatFactors.length - 1)
+      .flatMap(i => flatFactors.combinations(i).toList)
+      .toList.map(_.product).toSet.toList
+  }
 }
 
 object Primes {
