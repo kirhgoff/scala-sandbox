@@ -1,6 +1,5 @@
 package org.kirhgoff.euler
 
-
 /**
  * Created by Kirill Lastovirya (kirill.lastovirya@gmail.com) aka kirhgoff on 27/12/15.
  *
@@ -24,6 +23,4 @@ object Euler21 {
     .map(n => new FactorForm(n, Primes.divisors(n, primes)))
 
   println(allNumbers.mkString("\n"))
-
-
 }
