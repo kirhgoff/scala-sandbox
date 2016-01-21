@@ -19,15 +19,13 @@ import java.io.InputStream
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
  */
 object Euler22 {
-  val asStream: InputStream = getClass.getResourceAsStream("/euler22/p022_names.txt")
-  val text = io.Source.fromInputStream(asStream).mkString
-  val namesList = text.trim.split(",").map(name => name.replace("\"", "")).toList.sorted
-
   def score(name: String) = name.toList.map(ch => ch.getNumericValue - 9).sum
 
-  val scoreList = namesList.zipWithIndex.map(pair => (pair._1, pair._2 + 1, score(pair._1)))
-  val result = scoreList.map(sc => sc._2 * sc._3).sum
+  val asStream: InputStream = getClass.getResourceAsStream("/euler22/p022_names.txt")
+  val text = io.Source.fromInputStream(asStream).mkString
+  val names = text.trim.split(",").map(name => name.replace("\"", "")).toList.sorted
+  val result = names.zipWithIndex.map(pair => (pair._2 + 1) * score(pair._1)).sum
 
-  println (scoreList.filter(p => p._1.equals("COLIN")).mkString("\n"))
-  println ("Result: " + result)
+  println(result)
+
 }
