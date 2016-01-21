@@ -1,5 +1,7 @@
 package org.kirhgoff.euler
 
+import org.kirhgoff.numbers.{RowAggregator, PalindromeResult, Palindromes, Primes}
+import org.kirhgoff.words.Words
 import org.scalatest._
 
 class EulerAppTest extends FlatSpec with Matchers {
@@ -31,7 +33,6 @@ class EulerAppTest extends FlatSpec with Matchers {
     Words(113) should equal("one hundred and thirteen")
     Words(300) should equal("three hundred")
     Words(1000) should equal("one thousand")
-
   }
 
 }

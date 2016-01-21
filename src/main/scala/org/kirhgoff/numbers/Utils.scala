@@ -1,4 +1,4 @@
-package org.kirhgoff.euler
+package org.kirhgoff.numbers
 
 import scala.math.BigInt
 

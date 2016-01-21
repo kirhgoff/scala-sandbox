@@ -1,6 +1,6 @@
-package org.kirhgoff.euler
+package org.kirhgoff.numbers
 
-import org.kirhgoff.euler.Utils._
+import Utils._
 /**
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
  */
@@ -27,10 +27,10 @@ case class Remainder(number:Int) extends Factor {
 
 case class FactorForm (number:Int, factors: List[Factor]) {
   def properDivisors = {
-    val flatFactors = factors.flatMap(_.flat)
+    val flatFactors = 1 :: factors.flatMap(_.flat)
     (1 to flatFactors.length - 1)
       .flatMap(i => flatFactors.combinations(i).toList)
-      .toList.map(_.product).toSet.toList
+      .toList.map(_.product).filter(_ != number).distinct.sorted
   }
 }
 

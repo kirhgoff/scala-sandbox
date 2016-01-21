@@ -1,5 +1,7 @@
 package org.kirhgoff.euler
 
+import org.kirhgoff.numbers.{Palindromes, Utils}
+
 /**
  * Created by Kirill Lastovirya (kirill.lastovirya@gmail.com) aka kirhgoff on 19/11/15.
  */

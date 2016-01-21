@@ -1,5 +1,7 @@
 package org.kirhgoff.euler
 
+import org.kirhgoff.numbers.Primes
+
 /**
  * Created by Kirill Lastovirya (kirill.lastovirya@gmail.com) aka kirhgoff on 16/11/15.
  */

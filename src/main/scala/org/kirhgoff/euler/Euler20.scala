@@ -1,5 +1,7 @@
 package org.kirhgoff.euler
 
+import org.kirhgoff.numbers.{Palindromes, Utils}
+
 /**
  *
 

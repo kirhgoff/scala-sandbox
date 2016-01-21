@@ -1,6 +1,6 @@
-package org.kirhgoff.euler
+package org.kirhgoff.numbers
 
-import org.kirhgoff.euler.Utils._
+import org.kirhgoff.numbers.Utils._
 
 import scala.collection.mutable
 
