@@ -28,17 +28,12 @@ object Euler21 {
     .map(ff => ff.number -> ff.properDivisors.sum)
     .toMap
 
-  val amicables = allNumbers.filter(ff => allNumbersSumMap(ff.number) match {
+  val amicablePairs = allNumbers.filter(ff => allNumbersSumMap(ff.number) match {
     case sum if allNumbersSumMap.contains(sum) && allNumbersSumMap(sum) != sum => {
-      val partnerSum = allNumbersSumMap(sum)
-      partnerSum == ff.number
+      allNumbersSumMap(sum) == ff.number
     }
     case _ => false
   }).map(ff => (ff.number, allNumbersSumMap(ff.number)))
 
-  val results = allNumbers.map(n => s"${n.number} => [${n.properDivisors.mkString(",")}]")
-  println(results.mkString("\n"))
-
-  println("Amicables:\n" + amicables.mkString("\n"))
-  println("Result: " + amicables.map(a => a._1).sum)
+  println("Result: " + amicablePairs.map(a => a._1).sum)
 }
