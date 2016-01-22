@@ -18,5 +18,7 @@ libraryDependencies ++= Seq(
 // See Here for more info http://www.scala-lang.org/files/archive/nightly/docs/manual/html/scalac.html 
 scalacOptions ++= List("-feature","-deprecation", "-unchecked", "-Xlint")
 
+javaOptions += "-Xmx4G"
+
 
 

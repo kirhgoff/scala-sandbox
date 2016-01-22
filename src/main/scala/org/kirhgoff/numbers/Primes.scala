@@ -28,7 +28,7 @@ case class Remainder(number:Int) extends Factor {
 case class FactorForm (number:Int, factors: List[Factor]) {
   def properDivisors = {
     val flatFactors = 1 :: factors.flatMap(_.flat)
-    (1 to flatFactors.length - 1)
+    (1 until flatFactors.length)
       .flatMap(i => flatFactors.combinations(i).toList)
       .toList.map(_.product).filter(_ != number).distinct.sorted
   }

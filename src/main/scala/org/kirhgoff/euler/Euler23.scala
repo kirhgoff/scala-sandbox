@@ -1,5 +1,9 @@
 package org.kirhgoff.euler
 
+import org.kirhgoff.numbers.{FactorForm, Primes}
+
+import scala.collection.immutable.Range.Inclusive
+
 /**
  * A perfect number is a number for which the sum of its proper divisors is exactly equal to the number.
  * For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28,
@@ -21,5 +25,23 @@ package org.kirhgoff.euler
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
  */
 object Euler23 {
+  val primes = Primes.primesUpTo(28123)
+  println (s"Primes are calculated ${primes.size}")
 
+  private val targetNumbers = 12 to 28123
+  val allNumbers = targetNumbers
+    .filter(!primes.contains(_))
+    .map(n => new FactorForm(n, Primes.divisors(n, primes)))
+  println(s"Processed all numbers ${allNumbers.size}")
+
+  val abundant = allNumbers.filter(ff => ff.properDivisors.sum > ff.number).map(ff => ff.number)
+  println(s"Found abundant numbers ${abundant.size}")
+
+  val abundantPairs = for (x <- abundant; y <- abundant) yield x + y
+  println(s"Found abundant pairs ${abundantPairs.size}")
+
+  val nonAbundant = targetNumbers filterNot abundantPairs.contains
+  println(s"nonAbundant ${nonAbundant.size}")
+
+  println(s"Result ${nonAbundant.sum}")
 }
