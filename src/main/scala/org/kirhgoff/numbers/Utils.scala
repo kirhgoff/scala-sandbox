@@ -32,6 +32,25 @@ object Utils {
     case other => other*factorial(other -1)
   }
 
+  def digits(number:Int):List[Int] = number match {
+    case 0 => List()
+    case something => (something % 10) :: digits(something / 10)
+  }
+
+  def digits(number:Long):List[Long] = number match {
+    case 0 => List()
+    case something => (something % 10) :: digits(something / 10)
+  }
+
+  def digits(number:BigInt):List[BigInt] = number match {
+    case x if x == BigInt(0) => List()
+    case something => (something % 10) :: digits(something / 10)
+  }
+
+  def digitsCount(n:Any) = n.toString.length
+
+  def numberFromDigits(digits:List[Int]) = digits.foldLeft(0)((number, digit) => number*10 + digit)
+
   def isMoreThanThreeDigit(x:Int) = x > 999
   def isThreeDigit(x:Int) = x > 99 && x <= 999
   def isSixDigit(x:Int) = x > 99999 && x <= 999999

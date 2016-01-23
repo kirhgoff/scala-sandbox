@@ -1,6 +1,6 @@
 package org.kirhgoff.euler
 
-import org.kirhgoff.numbers.{Palindromes, Utils}
+import org.kirhgoff.numbers.Utils
 
 /**
  *
@@ -16,7 +16,7 @@ Find the sum of the digits in the number 100!
  */
 object Euler20 {
   val factorial:BigInt = Utils.factorial(BigInt(100))
-  val digits = Palindromes.digits(factorial)
+  val digits = Utils.digits(factorial)
   val sum = digits.sum
   println("F:" + factorial)
   println("Digits: " + digits)
