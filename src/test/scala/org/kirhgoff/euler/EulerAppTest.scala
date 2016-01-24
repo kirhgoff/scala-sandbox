@@ -1,6 +1,6 @@
 package org.kirhgoff.euler
 
-import org.kirhgoff.numbers.{RowAggregator, PalindromeResult, Palindromes, Primes}
+import org.kirhgoff.numbers._
 import org.kirhgoff.words.Words
 import org.scalatest._
 
@@ -33,6 +33,32 @@ class EulerAppTest extends FlatSpec with Matchers {
     Words(113) should equal("one hundred and thirteen")
     Words(300) should equal("three hundred")
     Words(1000) should equal("one thousand")
+  }
+
+  "Arrays" should "correctly reverse arrays" in {
+    var arr = Array[Byte](0, 1)
+    Arrays.reverse(arr, 0, 1)
+    arr should equal (Array[Byte](1, 0))
+
+    arr = Array[Byte](0, 1, 2)
+    Arrays.reverse(arr, 0, 1)
+    arr should equal (Array[Byte](1, 0, 2))
+
+    arr = Array[Byte](0, 1, 2)
+    Arrays.reverse(arr, 2, 2)
+    arr should equal (Array[Byte](0, 1, 2))
+
+    arr = Array[Byte](0, 2, 1)
+    Arrays.reverse(arr, 1, 2)
+    arr should equal (Array[Byte](0, 1, 2))
+
+  }
+
+  "Arrays" should "permutate properly" in {
+    var arr = Array[Byte](0, 2, 1)
+    Arrays.permutate(0, arr)
+    arr should equal (Array[Byte](1, 0, 2))
+
   }
 
 }

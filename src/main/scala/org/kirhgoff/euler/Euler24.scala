@@ -1,5 +1,7 @@
 package org.kirhgoff.euler
 
+import org.kirhgoff.numbers.Arrays
+
 /**
  * Created by Kirill Lastovirya (kirill.lastovirya@gmail.com) aka kirhgoff on 23/01/16.
  *
@@ -16,20 +18,12 @@ package org.kirhgoff.euler
  * of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
  * */
 object Euler24 {
-  val lower = 123456789L
-  val upper = lower * 10L
-  val range = Range.Long(lower, upper, 1) //max 10 digits number
-  //def permutations = range.filter(n => n.toString.toList.distinct.size == 10)
+  //val symbols:Array[Byte] = Array[Byte](0, 1, 2)
+  //val symbols:Array[Byte] = Array[Byte](1, 2, 3, 4)
+  val symbols:Array[Byte] = Array[Byte](0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
-  var number = lower
-  var index:Long = 0L
-  while(number < upper && index != 1000000L) {
-    if (number.toString.toList.distinct.size == 10) {
-      index = index + 1
-      if (index % 100 == 0) println(s"index=$index number=$number")
-    }
-    number = number + 1
-  }
+  //WTF with indices?
+  Arrays.permutate(999999, 1, symbols)
+  println(symbols.mkString)
 
-  println(number)
 }
