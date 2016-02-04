@@ -25,10 +25,12 @@ import scala.collection.immutable.Range.Inclusive
  * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
  */
 object Euler23 {
-  val primes = Primes.primesUpTo(28123)
+  val started = System.currentTimeMillis
+  private val TopRange: Int = 28123
+  val primes = Primes.primesUpTo(TopRange)
   println (s"Primes are calculated ${primes.size}")
 
-  private val targetNumbers = 12 to 28123
+  private val targetNumbers = (1 to TopRange).toList.sorted
   val allNumbers = targetNumbers
     .filter(!primes.contains(_))
     .map(n => new FactorForm(n, Primes.divisors(n, primes)))
@@ -37,11 +39,27 @@ object Euler23 {
   val abundant = allNumbers.filter(ff => ff.properDivisors.sum > ff.number).map(ff => ff.number)
   println(s"Found abundant numbers ${abundant.size}")
 
-  val abundantPairs = for (x <- abundant; y <- abundant) yield x + y
+  //Possible to optimize
+  //val (first, second) = abundant.partition(_ < TopRange/2)
+  //val abundantPairs = (for (x <- first; y <- second) yield x + y).distinct.filter(_ < TopRange).sorted
+  val abundantPairs = (for (x <- abundant; y <- abundant) yield x + y).filter(_ < TopRange).distinct.sorted
   println(s"Found abundant pairs ${abundantPairs.size}")
 
-  val nonAbundant = targetNumbers filterNot abundantPairs.contains
+  val nonAbundant = filterNumbers(targetNumbers, abundantPairs, List())
   println(s"nonAbundant ${nonAbundant.size}")
 
-  println(s"Result ${nonAbundant.sum}")
+  println(s"Result is ${nonAbundant.sum} in ${(System.currentTimeMillis() - started)/1000} sec") //4179805
+
+  def filterNumbers(numbers:List[Int], filters:List[Int], result:List[Int]):List[Int] = {
+    numbers match {
+      case Nil => result
+      case number :: numbersTail =>
+        filters match {
+          case Nil => result ++ numbersTail
+          case filter :: filtersTail if filter < number => filterNumbers(numbers, filtersTail, result)
+          case filter :: filtersTail if filter == number => filterNumbers(numbersTail, filtersTail, result)
+          case filter :: filtersTail if filter > number => filterNumbers(numbersTail, filters, number :: result)
+        }
+    }
+  }
 }
