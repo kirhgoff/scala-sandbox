@@ -3,7 +3,7 @@ package org.kirhgoff.numbers
 /**
   * Created by kirilllastovirya on 6/02/2016.
   */
-object LastoClass {
+object NumberConversion {
   val number = 667
   val base = 6
 
