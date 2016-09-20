@@ -61,4 +61,23 @@ class EulerAppTest extends FlatSpec with Matchers {
 
   }
 
+  "Decimals" should "calculate length properly" in {
+    Decimals.length(0L) should equal (1L)
+    Decimals.length(1L) should equal (1L)
+    Decimals.length(20L) should equal (2L)
+    Decimals.length(40L) should equal (2L)
+    Decimals.length(24L) should equal (2L)
+    Decimals.length(100L) should equal (3L)
+    Decimals.length(2314L) should equal (4L)
+  }
+
+  "Decimals" should "cut properly" in {
+    Decimals.cut(234L, 1) should equal (2L, 34L)
+    Decimals.cut(100L, 2) should equal (10L, 0L)
+    Decimals.cut(1234L, 3) should equal (123L, 4L)
+    Decimals.cut(20L, 1) should equal (2, 0)
+    Decimals.cut(20L, 2) should equal (20, 0)
+    Decimals.cut(40L, 1) should equal (4, 0)
+  }
+
 }

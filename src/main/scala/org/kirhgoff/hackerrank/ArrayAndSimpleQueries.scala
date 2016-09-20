@@ -7,16 +7,16 @@ class Treap (val x:Int, val y:Int, var left:Treap, var right:Treap) {
     var resultLeft:Treap = this.left
     var resultRight:Treap = this.right
 
-    if (this.x <= x) {
-      if (this.right == null) resultRight = null
-      else (resultLeft, resultRight) = this.right.split(x)
-
-      resultLeft = new Treap(this.x, this.y, this.left, resultLeft)
-    } else {
-      if (this.left == null) resultLeft = null
-      else (resultLeft, resultRight) = this.left.split(x)
-      resultRight = new Treap(this.x, this.y, resultLeft, this.right)
-    }
+//    if (this.x <= x) {
+//      if (this.right == null) resultRight = null
+//      else (resultLeft, resultRight) = this.right.split(x)
+//
+//      resultLeft = new Treap(this.x, this.y, this.left, resultLeft)
+//    } else {
+//      if (this.left == null) resultLeft = null
+//      else (resultLeft, resultRight) = this.left.split(x)
+//      resultRight = new Treap(this.x, this.y, resultLeft, this.right)
+//    }
     (resultLeft, resultRight)
   }
 }
