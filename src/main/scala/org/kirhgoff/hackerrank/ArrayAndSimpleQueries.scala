@@ -1,6 +1,6 @@
 package org.kirhgoff.hackerrank
 
-
+/*
 class Treap (val x:Int, val y:Int, var left:Treap, var right:Treap) {
 
   def split(x:Int) : (Treap, Treap) = {
@@ -33,7 +33,7 @@ object Treap {
 
 }
 
-
+*/
 
 /**
  * https://www.hackerrank.com/challenges/array-and-simple-queries
@@ -42,5 +42,14 @@ object Treap {
 object ArrayAndSimpleQueries {
   def main(args: Array[String]) {
 
+    val pf: PartialFunction[Int, Int] = {
+      case i: Int ⇒ i + 1
+    }
+    println (pf)
+    println ({case i: Int ⇒ i + 1})
+
+    val result = List(41, "cat") collect { case i: Int ⇒ i + 1 }
+    println (result)
+    println "fsdf"
   }
 }
