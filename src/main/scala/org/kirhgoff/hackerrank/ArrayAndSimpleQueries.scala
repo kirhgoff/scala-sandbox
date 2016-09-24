@@ -35,21 +35,20 @@ object Treap {
 
 */
 
-/**
- * https://www.hackerrank.com/challenges/array-and-simple-queries
- * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
- */
-object ArrayAndSimpleQueries {
-  def main(args: Array[String]) {
-
-    val pf: PartialFunction[Int, Int] = {
-      case i: Int ⇒ i + 1
-    }
-    println (pf)
-    println ({case i: Int ⇒ i + 1})
-
-    val result = List(41, "cat") collect { case i: Int ⇒ i + 1 }
-    println (result)
-    println "fsdf"
-  }
-}
+///**
+// * https://www.hackerrank.com/challenges/array-and-simple-queries
+// * @author <a href="mailto:kirill.lastovirya@moex.com">Kirill Lastovirya</a>
+// */
+//object ArrayAndSimpleQueries {
+//  def main(args: Array[String]) {
+//
+//    val pf: PartialFunction[Int, Int] = {
+//      case i: Int ⇒ i + 1
+//    }
+//    println (pf)
+//    println ({case i: Int ⇒ i + 1})
+//
+//    val result = List(41, "cat") collect { case i: Int ⇒ i + 1 }
+//    println (result)
+//  }
+//}
